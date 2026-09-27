@@ -1,0 +1,9 @@
+logs/
+rtabmap_db/
+*.log
+__pycache__/
+*.pyc
+*.pyo
+.vscode/
+.idea/
+*.swp

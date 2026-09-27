@@ -1,0 +1,33 @@
+# ros_gz_bridge: single-drone RGB-D for RTAB-Map. gz spawns the model as
+# x500_depth_2 (instance 2), but downstream ROS code subscribes under the
+# friendly /drone_1/ names.
+
+- gz_topic_name: "/clock"
+  ros_topic_name: "/clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+  direction: GZ_TO_ROS
+
+- gz_topic_name: "/world/warehouse/model/x500_depth_2/link/OakD-Lite/base_link/sensor/IMX214/image"
+  ros_topic_name: "/drone_1/camera/raw"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
+
+- gz_topic_name: "/world/warehouse/model/x500_depth_2/link/OakD-Lite/base_link/sensor/IMX214/camera_info"
+  ros_topic_name: "/drone_1/camera/camera_info_raw"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "gz.msgs.CameraInfo"
+  direction: GZ_TO_ROS
+
+- gz_topic_name: "/world/warehouse/model/x500_depth_2/link/OakD-Lite/base_link/sensor/StereoOV7251/depth_image"
+  ros_topic_name: "/drone_1/depth/raw"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
+
+- gz_topic_name: "/world/warehouse/model/x500_depth_2/link/OakD-Lite/base_link/sensor/StereoOV7251/depth_image/points"
+  ros_topic_name: "/drone_1/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+  direction: GZ_TO_ROS

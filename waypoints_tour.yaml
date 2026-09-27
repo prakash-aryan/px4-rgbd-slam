@@ -1,0 +1,33 @@
+threshold: 0.5
+threshold_angle: 0.4
+# Spiral-out tour for SLAM mapping. Starts as a small circle and spirals
+# outward so the camera sees nearby shelves/features continuously.
+# Altitude 2.5 m keeps the drone INSIDE the warehouse aisles (below shelf
+# tops), so the forward-facing OakD-Lite always images close-range
+# shelving and floor texture.
+#
+# NED: x = north, y = east, z = down.
+wp:
+  /px4_1:
+    # [0] Climb straight up in place from spawn (0,-1,0) to 2.5 m
+    - { x:  0, y: -1, z: -2.5, yaw:  0.0 }
+    # Small circle radius 1.5 m centered at origin
+    - { x:  0.0,  y:  1.5,  z: -2.5, yaw:  0.0 }
+    - { x:  1.06, y:  1.06, z: -2.5, yaw:  0.78 }
+    - { x:  1.5,  y:  0.0,  z: -2.5, yaw:  1.5708 }
+    - { x:  1.06, y: -1.06, z: -2.5, yaw:  2.35 }
+    - { x:  0.0,  y: -1.5,  z: -2.5, yaw:  3.1415 }
+    - { x: -1.06, y: -1.06, z: -2.5, yaw: -2.35 }
+    - { x: -1.5,  y:  0.0,  z: -2.5, yaw: -1.5708 }
+    - { x: -1.06, y:  1.06, z: -2.5, yaw: -0.78 }
+    # Expand circle radius 3 m
+    - { x:  0.0,  y:  3.0,  z: -2.5, yaw:  0.0 }
+    - { x:  2.12, y:  2.12, z: -2.5, yaw:  0.78 }
+    - { x:  3.0,  y:  0.0,  z: -2.5, yaw:  1.5708 }
+    - { x:  2.12, y: -2.12, z: -2.5, yaw:  2.35 }
+    - { x:  0.0,  y: -3.0,  z: -2.5, yaw:  3.1415 }
+    - { x: -2.12, y: -2.12, z: -2.5, yaw: -2.35 }
+    - { x: -3.0,  y:  0.0,  z: -2.5, yaw: -1.5708 }
+    - { x: -2.12, y:  2.12, z: -2.5, yaw: -0.78 }
+    # Return to center
+    - { x:  0.0,  y:  0.0,  z: -2.5, yaw:  0.0 }
